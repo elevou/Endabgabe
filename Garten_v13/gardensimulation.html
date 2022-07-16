@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardenSimulation</title>
+
+    <script src="classes/Bug/Bug.js"></script>
+    <script src="classes/Plant/Plant.js"></script>
+    <script src="classes/Field/Field.js"></script>
+    <script src="classes/Player/Player.js"></script>
+    <script src="classes/Karotte/Karotte.js"></script>
+    <script src="classes/Melone/Melone.js"></script>
+    <script src="classes/Radieschen/Radish.js"></script>
+    <script src="classes/Salat/Salat.js"></script>
+    <script src="classes/Sellerie/Sellerie.js"></script>
+    <script src="classes/Load/load.js"></script>
+    <script src="gardensimulation.js"></script>
+</head>
+<header>
+    <h1>GardenSimulation</h1>
+</header>
+<body>
+    <form id="settings">
+        <h2>Settings</h2>
+        <fieldset id="capital">
+            <label for="capital">Seed capital</label>
+            <input type="number" name="capital" min="100" max="1000" step="10" value="100"> <br>
+        </fieldset>
+        <fieldset id="schwankung">
+            <label for="schwankung">Preisschwankung</label>
+            <input type="number" name="schwankung" min="5" max="20" step="1" value="5"> <br>
+        </fieldset>
+        <button type="button" id="startButton">Start Game</button>
+    </form>
+    <div id="gameField">
+        <canvas></canvas>
+        <button id="s1" value="seed1">Karotte <span id="karotteMenge"></span></button>
+        <button id="s2" value="seed2">Melone <span id="meloneMenge"></span></button>
+        <button id="s3" value="seed3">Radieschen <span id="radieschenMenge"></span></button>
+        <button id="s4" value="seed4">Salat <span id="salatMenge"></span></button>
+        <button id="s5" value="seed5">Sellerie <span id="sellerieMenge"></span></button>
+        <button id="h">Harvest</button>
+        <button id="w">Water</button>
+        <button id="f">Fertilize</button>
+        <button id="p">Pesticide</button>
+        <span id="money">Money: 0 €</span>
+
+        <div id="markt">
+            <button id="buyKarotten" value="buy1">buy Karotte <span id="karottePrice"></span></button> 
+            <button id="buyMelone" value="buy2"> buy Melone <span id="melonePrice"></span></button> 
+            <button id="buyRadieschen" value="buy3"> buy Radieschen <span id="radischenPrice"></span></button>
+            <button id="buySalat" value="buy4">buy Salat <span id="salatPrice"></span></button>
+            <button id="buySellerie" value="buy5">buy Sellerie <span id="selleriePrice"></span></button>
+        </div> 
+    </div>    
+   
+    <div id="assets">
+        <img id="Pesti" src="assets/bug.png" alt="Pesti">
+
+        <img id="WasserEins" src="assets/Gemüse_Tropfen1.png" alt="WasserEins">
+        <img id="WasserZwei" src="assets/Gemüse_Tropfen2.png" alt="WasserZwei">
+        <img id="WasserDrei" src="assets/Gemüse_Tropfen3.png" alt="WasserDrei">
+        
+        <img id="ferti1" src="assets/Gemüse_duenger1.png" alt="ferti1">
+        <img id="ferti2" src="assets/Gemüse_duenger2.png" alt="ferti2">
+        <img id="ferti3" src="assets/Gemüse_duenger3.png" alt="ferti3">
+
+        <img id="Karotte_groß" src="assets/Gemüse_Karotte_groß.png" alt="Karotte_groß">
+        <img id="Karotte_mittel" src="assets/Gemüse_Karotte_mittel.png" alt="Karotte_mittel">
+        <img id="Karotte_klein" src="assets/Gemüse_Karotte_klein.png" alt="Karotte_klein">
+
+        <img id="Melone_groß" src="assets/Gemüse_Melone_groß.png" alt="Melone_groß">
+        <img id="Melone_mittel" src="assets/Gemüse_Melone_mittel.png" alt="Melone_mittel">
+        <img id="Melone_klein" src="assets/Gemüse_Melone_klein.png" alt="Melone_klein">
+
+        <img id="Radieschen_groß" src="assets/Gemüse_Radieschen_groß.png" alt="Radieschen_groß">
+        <img id="Radieschen_mittel" src="assets/Gemüse_Radieschen_mittel.png" alt="Radieschen_mittel">
+        <img id="Radieschen_klein" src="assets/Gemüse_Radieschen_klein.png" alt="Radieschen_klein">
+        
+        <img id="Salat_groß" src="assets/Gemüse_Salat_groß.png" alt="Salat_groß">
+        <img id="Salat_mittel" src="assets/Gemüse_Salat_mittel.png" alt="Salat_mittel">
+        <img id="Salat_klein" src="assets/Gemüse_Salat_klein.png" alt="Salat_klein">
+
+        <img id="Sellerie_groß" src="assets/Gemüse_Sellerie_groß.png" alt="Sellerie_groß">
+        <img id="Sellerie_mittel" src="assets/Gemüse_Sellerie_mittel.png" alt="Sellerie_mittel">
+        <img id="Sellerie_klein" src="assets/Gemüse_Sellerie_klein.png" alt="Sellerie_klein">
+
+        <img id="Empty" src="assets/Gemüse_Empty.png" alt="Empty">
+    </div>
+</body>
+</html>
